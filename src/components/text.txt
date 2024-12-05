@@ -1,0 +1,40 @@
+import React from 'react'
+
+function WeatherCard({weatherData}) {
+    return (
+        <div className="card w-96 bg-gradient-to-r from-blue-400 to-indigo-500 shadow-xl p-6 rounded-lg text-white">
+            <div className="card-body">
+                <h2 className="text-4xl font-semibold">{weatherData?.name}</h2>
+                <div className="flex items-center">
+                    <img
+                        src={`https://openweathermap.org/img/wn/${weatherData?.weather[0].icon}.png`}
+                        alt={weatherData?.weather[0].description}
+                        className="w-16 h-16"
+                    />
+                    <div className="ml-4">
+                        <p className="text-2xl">{weatherData?.weather[0].main}</p>
+                        <p className="text-xl">{weatherData?.weather[0].description}</p>
+                    </div>
+                </div>
+                <div className="flex justify-between mt-4">
+                    <div className="text-center">
+                        <p className="text-lg">Temperature</p>
+                        <p className="text-3xl font-bold">{Math.round(weatherData?.main.temp)}°C</p>
+                    </div>
+                    <div className="text-center">
+                        <p className="text-lg">Humidity</p>
+                        <p className="text-3xl font-bold">{weatherData?.main.humidity}%</p>
+                    </div>
+                </div>
+                <div className="mt-4 text-center">
+                    <p className="text-lg">Wind Speed</p>
+                    <p className="text-3xl font-bold">{weatherData?.wind.speed} m/s</p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default WeatherCard
+tailwind ka background
+bg-gradient-to-br from-blue-300 via-indigo-400 to-purple-500
